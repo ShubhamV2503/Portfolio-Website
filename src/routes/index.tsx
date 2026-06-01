@@ -245,7 +245,7 @@ const projects = [
 
 const experience = [
   {
-    company: "LTIMindtree",
+    company: "LTM (LTIMindtree)",
     role: "GenAI Intern",
     period: "Feb 2026 – Apr 2026",
     location: "Bangalore",
