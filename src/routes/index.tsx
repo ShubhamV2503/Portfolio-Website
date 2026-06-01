@@ -249,6 +249,7 @@ const experience = [
     role: "GenAI Intern",
     period: "Feb 2026 – Apr 2026",
     location: "Bangalore",
+    logo: "/images/ltm.png",
     points: [
       "Built a LangGraph multi-agent GenAI system extracting compliance data from 5,000+ Italian invoices with 100% recall on non-compliance fields.",
       "Designed a parallel voting mechanism that reduced end-to-end pipeline latency by 50%.",
@@ -259,6 +260,7 @@ const experience = [
     role: "Data Scientist Intern",
     period: "Jul 2025 – Nov 2025",
     location: "Amsterdam, NL · Remote",
+    logo: "/images/pando.png",
     points: [
       "Built and deployed a CV detection & tracking pipeline with Roboflow at 98% object detection accuracy.",
       "Designed a production analytics dashboard translating vision-based tracking into 5+ real-time KPIs.",
@@ -269,6 +271,7 @@ const experience = [
     role: "Software Engineer Intern",
     period: "Nov 2024 – Jan 2025",
     location: "Mumbai",
+    logo: "/images/itjobxs.png",
     points: [
       "Developed 40% of backend logic for a data-driven Python application.",
       "Resolved Google reCAPTCHA integration, cutting invalid submissions by 30%.",
@@ -494,7 +497,16 @@ function Index() {
                   <div key={e.company} className="relative group">
                     <span className="absolute -left-[37px] top-1 h-3 w-3 rounded-full bg-background border-2 border-primary group-hover:bg-primary group-hover:shadow-[0_0_10px_var(--primary)] transition-all" />
                     <h4 className="text-lg font-bold text-foreground">{e.role}</h4>
-                    <div className="text-primary font-medium text-sm mb-1">{e.company}</div>
+                    <div className="flex items-center gap-2 mb-1">
+                      {e.logo && (
+                        <img 
+                          src={e.logo} 
+                          alt={`${e.company} logo`} 
+                          className="w-6 h-6 object-contain bg-white/10 rounded overflow-hidden" 
+                        />
+                      )}
+                      <div className="text-primary font-medium text-sm">{e.company}</div>
+                    </div>
                     <div className="text-xs font-mono text-muted-foreground mb-4">
                       {e.period} · {e.location}
                     </div>
