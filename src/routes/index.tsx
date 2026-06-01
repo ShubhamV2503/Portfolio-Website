@@ -543,22 +543,35 @@ function Index() {
                     t: "MTech, Data Science & Business Analytics",
                     s: "NMIMS University",
                     d: "GPA 9.2/10 · Advanced ML, Big Data, Distributed Systems",
+                    logo: "/images/MTech_College_Logo.jpg",
                   },
                   {
                     y: "2018 – 2022",
                     t: "BE, Civil Engineering",
                     s: "Thakur College of Engineering & Technology",
                     d: "GPA 9.2/10 · Engineering foundations, computational analysis",
+                    logo: "/images/BE_Logo.jpg",
                   },
                 ].map((ed) => (
                   <div
                     key={ed.t}
-                    className="glass-panel p-6 rounded-2xl group hover:border-primary/40 transition-colors"
+                    className="glass-panel p-6 rounded-2xl group hover:border-primary/40 transition-colors flex flex-col sm:flex-row gap-4"
                   >
-                    <div className="text-xs font-mono text-primary mb-2">{ed.y}</div>
-                    <h4 className="text-lg font-bold text-foreground mb-1">{ed.t}</h4>
-                    <div className="text-sm font-medium text-foreground/70 mb-3">{ed.s}</div>
-                    <div className="text-sm font-light text-muted-foreground">{ed.d}</div>
+                    {ed.logo && (
+                      <div className="shrink-0 flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-border shadow-sm overflow-hidden">
+                        <img 
+                          src={ed.logo} 
+                          alt={`${ed.s} logo`} 
+                          className="w-10 h-10 object-contain" 
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <div className="text-xs font-mono text-primary mb-2">{ed.y}</div>
+                      <h4 className="text-lg font-bold text-foreground mb-1">{ed.t}</h4>
+                      <div className="text-sm font-medium text-foreground/70 mb-2">{ed.s}</div>
+                      <div className="text-sm font-light text-muted-foreground">{ed.d}</div>
+                    </div>
                   </div>
                 ))}
               </div>
