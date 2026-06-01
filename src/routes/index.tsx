@@ -562,8 +562,16 @@ function Index() {
                     y: "2018 – 2022",
                     t: "BE, Civil Engineering",
                     s: "Thakur College of Engineering & Technology",
-                    d: "GPA 9.2/10 · Engineering foundations, computational analysis",
+                    d: "GPA 9.2/10",
                     logo: "/images/BE_Logo.jpg",
+                    coursework: [
+                      "Data Structures",
+                      "Algorithms",
+                      "Database Systems",
+                      "Operating Systems",
+                      "Computer Networks",
+                      "Software Engineering"
+                    ]
                   },
                 ].map((ed) => (
                   <div
