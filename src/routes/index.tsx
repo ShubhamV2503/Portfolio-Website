@@ -542,8 +542,21 @@ function Index() {
                     y: "2024 – 2026",
                     t: "MTech, Data Science & Business Analytics",
                     s: "NMIMS University",
-                    d: "GPA 9.2/10 · Advanced ML, Big Data, Distributed Systems",
+                    d: "GPA 9.2/10",
                     logo: "/images/MTech_College_Logo.jpg",
+                    coursework: [
+                      "Machine Learning",
+                      "Statistical Modelling",
+                      "Business Analytics",
+                      "Deep Learning",
+                      "NLP",
+                      "Big Data",
+                      "Agentic AI",
+                      "LLMs",
+                      "Computer Vision",
+                      "Re-Inforcement Learning",
+                      "Artificial Intelligence"
+                    ]
                   },
                   {
                     y: "2018 – 2022",
@@ -566,11 +579,23 @@ function Index() {
                         />
                       </div>
                     )}
-                    <div>
+                    <div className="flex-1">
                       <div className="text-xs font-mono text-primary mb-2">{ed.y}</div>
                       <h4 className="text-lg font-bold text-foreground mb-1">{ed.t}</h4>
                       <div className="text-sm font-medium text-foreground/70 mb-2">{ed.s}</div>
                       <div className="text-sm font-light text-muted-foreground">{ed.d}</div>
+                      {ed.coursework && (
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {ed.coursework.map((course) => (
+                            <span 
+                              key={course} 
+                              className="px-2.5 py-1 bg-primary/5 text-primary/90 border border-primary/20 rounded-md text-[11px] font-medium tracking-wide"
+                            >
+                              {course}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
