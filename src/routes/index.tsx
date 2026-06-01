@@ -542,7 +542,7 @@ function Index() {
                     y: "2024 – 2026",
                     t: "MTech, Data Science & Business Analytics",
                     s: "NMIMS University",
-                    d: "GPA 9.2/10",
+                    d: "CGPA 9.2/10",
                     logo: "/images/MTech_College_Logo.jpg",
                     coursework: [
                       "Machine Learning",
@@ -561,8 +561,8 @@ function Index() {
                   {
                     y: "2018 – 2022",
                     t: "BE, Civil Engineering",
-                    s: "Thakur College of Engineering & Technology",
-                    d: "GPA 9.2/10",
+                    s: "Thakur College of Engineering & Technology, University of Mumbai",
+                    d: "CGPA 9.2/10",
                     logo: "/images/BE_Logo.jpg",
                     coursework: [
                       "Data Structures",
