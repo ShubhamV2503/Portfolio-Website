@@ -492,34 +492,41 @@ function Index() {
               <h3 className="text-2xl font-semibold mb-8 text-foreground/80 flex items-center gap-3">
                 <Terminal className="h-5 w-5 text-primary" /> Professional
               </h3>
-              <div className="space-y-8 border-l border-primary/20 ml-3 pl-8 relative">
+              <div className="space-y-12 border-l-2 border-primary/20 ml-3 pl-8 md:pl-10 relative">
                 {experience.map((e) => (
-                  <div key={e.company} className="relative group">
-                    <span className="absolute -left-[37px] top-1 h-3 w-3 rounded-full bg-background border-2 border-primary group-hover:bg-primary group-hover:shadow-[0_0_10px_var(--primary)] transition-all" />
-                    <h4 className="text-lg font-bold text-foreground">{e.role}</h4>
-                    <div className="flex items-center gap-2 mb-1">
-                      {e.logo && (
+                  <div key={e.company} className="relative group flex flex-col sm:flex-row gap-5">
+                    {/* Timeline Dot */}
+                    <span className="absolute -left-[41px] md:-left-[49px] top-2 h-4 w-4 rounded-full bg-primary border-4 border-background group-hover:scale-125 transition-transform" />
+                    
+                    {/* Logo Box */}
+                    {e.logo && (
+                      <div className="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-white border border-border shadow-sm overflow-hidden">
                         <img 
                           src={e.logo} 
                           alt={`${e.company} logo`} 
-                          className="w-6 h-6 object-contain bg-white/10 rounded overflow-hidden" 
+                          className="w-10 h-10 object-contain" 
                         />
-                      )}
-                      <div className="text-primary font-medium text-sm">{e.company}</div>
+                      </div>
+                    )}
+                    
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h4 className="text-xl md:text-2xl font-bold text-foreground mb-1">{e.company}</h4>
+                      <div className="text-primary font-medium text-sm md:text-base mb-1">{e.role}</div>
+                      <div className="text-xs font-mono text-muted-foreground mb-4">
+                        {e.period} · {e.location}
+                      </div>
+                      <ul className="space-y-3 text-sm text-muted-foreground font-light">
+                        {e.points.map((pt, i) => (
+                          <li
+                            key={i}
+                            className="relative pl-5 before:content-['-'] before:font-bold before:absolute before:left-0 before:text-primary before:text-lg before:-top-1"
+                          >
+                            {pt}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="text-xs font-mono text-muted-foreground mb-4">
-                      {e.period} · {e.location}
-                    </div>
-                    <ul className="space-y-2 text-sm text-muted-foreground font-light">
-                      {e.points.map((pt, i) => (
-                        <li
-                          key={i}
-                          className="relative before:content-['▹'] before:absolute before:-left-4 before:text-primary pl-1"
-                        >
-                          {pt}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 ))}
               </div>
