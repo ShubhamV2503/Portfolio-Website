@@ -263,7 +263,19 @@ const publications = [
   }
 ];
 
-const projects = [
+interface Project {
+  title: string;
+  category: string;
+  desc: string | string[];
+  stack: string[];
+  featured?: boolean;
+  metrics?: string[];
+  github?: string;
+  demo?: string;
+  tag?: string;
+}
+
+const projects: Project[] = [
   {
     featured: true,
     title: "YouTube AI Agent",
