@@ -268,14 +268,21 @@ const projects = [
     featured: true,
     title: "YouTube AI Agent",
     category: "AI PROJECTS",
-    desc: "Developed a chat-enabled AI agent for contextual Q&A over video transcripts, metadata, and watch-history, improving answer relevance by 35% and reducing hallucinations by 40% using hybrid retrieval and prompt optimization. Built an ETL pipeline ingesting 10+ APIs, structuring unstructured data, and storing 1M+ records with 60% faster query latency. Integrated a Bloom Filter layer to cut redundant queries by 30%, improving overall system throughput.",
+    desc: [
+      "Developed a chat-enabled AI agent for contextual Q&A over video transcripts, metadata, and watch-history, improving answer relevance by 35% and reducing hallucinations by 40% using hybrid retrieval and prompt optimization.",
+      "Built an ETL pipeline ingesting 10+ APIs, structuring unstructured data, and storing 1M+ records with 60% faster query latency.",
+      "Integrated a Bloom Filter layer to cut redundant queries by 30%, improving overall system throughput."
+    ],
     metrics: ["35% More Relevant", "40% Less Hallucinations", "60% Faster Latency"],
     stack: ["Amazon Redshift", "Google Cloud", "Database"],
   },
   {
     title: "Brain CT Scan Image Denoising",
     category: "AI PROJECTS",
-    desc: "Engineered a 4-layer encoder-decoder architecture to reduce Poisson and Periodic noise while preserving diagnostic feature enhancing the scan classification accuracy about 87% post-denoising, validating model performance. Deployed on EC2 instance, real-time processing with less than 5s latency for single and batch DICOM image.",
+    desc: [
+      "Engineered a 4-layer encoder-decoder architecture to reduce Poisson and Periodic noise while preserving diagnostic features, enhancing the scan classification accuracy to about 87% post-denoising.",
+      "Deployed on EC2 instance, real-time processing with less than 5s latency for single and batch DICOM image."
+    ],
     stack: ["Image Processing", "Auto-Encoder", "AWS EC2"],
     github: "https://github.com/ShubhamV2503/NeuroScanAI--CT-Scan-Image-Denoising",
     demo: "https://huggingface.co/spaces/rayuga2503/NeuroScanAI",
@@ -283,7 +290,11 @@ const projects = [
   {
     title: "ETL Stock Data Pipeline Forecasting Finance",
     category: "DATA ENGINEERING",
-    desc: "Automated Gold (XAUUSD) pipeline Alpha Vantage, orchestrated DAGs, 7 years records through S3 Bucket. Migrated Prophet model to SARIMAX and reducing MAPE by 14.16%. Integrated Amazon Redshift for analytics, enabling same-day insights and boosting query efficiency by 30%.",
+    desc: [
+      "Automated Gold (XAUUSD) pipeline Alpha Vantage, orchestrated DAGs, 7 years records through S3 Bucket.",
+      "Migrated Prophet model to SARIMAX and reducing MAPE by 14.16%.",
+      "Integrated Amazon Redshift for analytics, enabling same-day insights and boosting query efficiency by 30%."
+    ],
     stack: ["SARIMAX", "S3 Bucket", "Airflow"],
     github: "https://github.com/ShubhamV2503/Gold-Insight-Forecastor",
     demo: "https://huggingface.co/spaces/rayuga2503/gold-price-forecaster",
@@ -769,9 +780,19 @@ function Index() {
                   >
                     {p.title}
                   </h3>
-                  <p className="text-muted-foreground font-light leading-relaxed flex-1 mb-8">
-                    {p.desc}
-                  </p>
+                  {Array.isArray(p.desc) ? (
+                    <ul className="text-muted-foreground font-light leading-relaxed flex-1 mb-8 space-y-2 list-none pl-0 text-sm md:text-base">
+                      {p.desc.map((point, idx) => (
+                        <li key={idx} className="relative pl-5 before:content-['•'] before:absolute before:left-0 before:text-primary">
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-muted-foreground font-light leading-relaxed flex-1 mb-8">
+                      {p.desc}
+                    </p>
+                  )}
 
                   {p.metrics && (
                     <div className="flex flex-wrap gap-3 mb-8">
