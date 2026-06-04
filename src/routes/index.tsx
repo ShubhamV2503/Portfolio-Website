@@ -969,7 +969,7 @@ function Index() {
               {[
                 { i: Github, l: "GitHub", h: "https://github.com/ShubhamV2503" },
                 { i: Linkedin, l: "LinkedIn", h: "https://linkedin.com/in/shubhamv2503" },
-                { i: Trophy, l: "Kaggle", h: "https://www.kaggle.com/shubhamv2503" },
+                { i: Trophy, l: "Kaggle", h: "https://www.kaggle.com/rayuga2503" },
                 { i: Code2, l: "LeetCode", h: "https://leetcode.com/u/rayuga2503/" },
               ].map(({ i: Icon, l, h }) => (
                 <a
