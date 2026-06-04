@@ -221,6 +221,7 @@ const certifications = [
   { y: "2025", t: "Amazon ML Summer School", s: "Amazon", pdf: "/certificates/Amazon ML Summer School.pdf" },
   { y: "2023", t: "IBM Adv. Data Science", s: "IBM", pdf: "/certificates/IBM Advance Data Science & AI Certification.pdf" },
   { y: "2023", t: "AWS Cloud Practitioner", s: "AWS", pdf: "/certificates/AWS CERTIFIED CLOUD.pdf" },
+  { y: "2024", t: "SQL Advanced", s: "HackerRank", pdf: "/certificates/sql_advanced certificate.pdf" },
 ];
 
 const publications = [
