@@ -505,9 +505,6 @@ function Index() {
               <p>
                 What excites me most is solving real-world problems where technology creates measurable impact. Whether it's designing multi-agent AI workflows, building scalable ML pipelines, deploying computer vision systems, or developing intelligent data products, I enjoy turning complex challenges into practical solutions that people can trust and use.
               </p>
-              <p>
-                Beyond technical work, I'm passionate about continuous learning and contributing to the tech community. I actively explore emerging trends in AI, data infrastructure, and startups, participate in hackathons and industry events, publish research, and share insights with fellow builders. I believe the best innovations happen when curiosity, collaboration, and execution come together.
-              </p>
             </div>
           </div>
         </Section>
