@@ -897,13 +897,47 @@ function Index() {
               next big thing.
             </p>
 
-            <a
-              href="mailto:vishwakarmashubham.2503@gmail.com"
-              className="inline-flex items-center gap-3 text-2xl md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-glow hover:scale-105 transition-transform"
-            >
-              <Mail className="h-8 w-8 text-primary" />
-              vishwakarmashubham.2503@gmail.com
-            </a>
+            <form action="https://formsubmit.co/vishwakarmashubham.2503@gmail.com" method="POST" className="max-w-xl mx-auto text-left flex flex-col gap-4 mt-8 relative z-10">
+              {/* Formsubmit config */}
+              <input type="hidden" name="_subject" value="New message from portfolio!" />
+              <input type="hidden" name="_captcha" value="false" />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input 
+                  type="text" 
+                  name="name" 
+                  placeholder="Your Name" 
+                  required 
+                  className="w-full bg-white/50 dark:bg-black/20 backdrop-blur-sm border border-border/50 rounded-2xl px-5 py-3.5 focus:outline-none focus:border-primary/50 transition-colors" 
+                />
+                <input 
+                  type="email" 
+                  name="email" 
+                  placeholder="Your Email" 
+                  required 
+                  className="w-full bg-white/50 dark:bg-black/20 backdrop-blur-sm border border-border/50 rounded-2xl px-5 py-3.5 focus:outline-none focus:border-primary/50 transition-colors" 
+                />
+              </div>
+              <textarea 
+                name="message" 
+                placeholder="Your Message" 
+                required 
+                rows={4} 
+                className="w-full bg-white/50 dark:bg-black/20 backdrop-blur-sm border border-border/50 rounded-2xl px-5 py-3.5 focus:outline-none focus:border-primary/50 transition-colors resize-none"
+              />
+              
+              <button 
+                type="submit" 
+                className="w-full bg-[#3b82f6] text-white font-bold rounded-2xl px-5 py-4 hover:bg-[#2563eb] hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2"
+              >
+                Send Message
+                <ArrowRight className="h-4 w-4" />
+              </button>
+
+              <div className="text-center mt-6 text-sm text-muted-foreground/80">
+                or email directly at <a href="mailto:vishwakarmashubham.2503@gmail.com" className="text-foreground hover:text-primary transition-colors font-medium">vishwakarmashubham.2503@gmail.com</a>
+              </div>
+            </form>
 
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               {[
