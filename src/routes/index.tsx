@@ -62,7 +62,6 @@ export const Route = createFileRoute("/")({
 
 const nav = [
   { href: "#about", label: "About" },
-  { href: "#process", label: "Pipeline" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#certifications", label: "Certifications" },
@@ -495,27 +494,10 @@ function Index() {
           </div>
         </Section>
 
-        {/* Process */}
-        <Section id="process" eyebrow="02. Framework" title="My Pipeline. For Everything.">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pipeline.map((p) => (
-              <div
-                key={p.n}
-                className="glass-panel rounded-2xl p-6 group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="text-sm font-mono mb-4 text-primary font-bold">{p.n}.</div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">{p.t}</h3>
-                <p className="text-sm text-muted-foreground mb-6 font-light">{p.d}</p>
-                <p className="text-xs font-mono text-primary/70">{p.c}</p>
-              </div>
-            ))}
-          </div>
-        </Section>
 
         {/* Skills Bento Box */}
         {/* Skills */}
-        <Section id="skills" eyebrow="03. Tech Stack" title="Core Technologies.">
+        <Section id="skills" eyebrow="02. Tech Stack" title="Core Technologies.">
           <p className="text-muted-foreground text-lg mb-12 max-w-2xl">
             A curated stack of tools and frameworks I use to engineer production-ready ML models, GenAI agents, and scalable data pipelines.
           </p>
@@ -547,7 +529,7 @@ function Index() {
         </Section>
 
         {/* Experience & Education */}
-        <Section id="experience" eyebrow="04. Timeline" title="Experience & Education">
+        <Section id="experience" eyebrow="03. Timeline" title="Experience & Education">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8">
             <div>
               <h3 className="text-2xl font-semibold mb-8 text-foreground/80 flex items-center gap-3">
@@ -675,7 +657,7 @@ function Index() {
         </Section>
 
         {/* Certifications */}
-        <Section id="certifications" eyebrow="05. Verification" title="Certifications">
+        <Section id="certifications" eyebrow="04. Verification" title="Certifications">
           <div className="grid md:grid-cols-2 gap-6">
             {certifications.map((c) => (
               <div key={c.t} className="glass-panel p-8 rounded-[1.5rem] flex flex-col justify-center transition-all duration-300 hover:shadow-sm hover:border-border/80 border-[#e5e7eb]">
@@ -688,7 +670,7 @@ function Index() {
         </Section>
 
         {/* Publications */}
-        <Section id="publications" eyebrow="06. Research" title="Publications & Research Papers">
+        <Section id="publications" eyebrow="05. Research" title="Publications & Research Papers">
           <div className="grid md:grid-cols-2 gap-5">
             {publications.map((p, idx) => (
               <a
@@ -741,7 +723,7 @@ function Index() {
         </Section>
 
         {/* Projects */}
-        <Section id="projects" eyebrow="07. Execution" title="Selected Work">
+        <Section id="projects" eyebrow="06. Execution" title="Selected Work">
           <div className="flex flex-wrap items-center gap-4 mb-12">
             {categories.map(cat => (
               <button 
@@ -849,7 +831,7 @@ function Index() {
           `}</style>
 
           <div className="max-w-7xl mx-auto px-6 mb-12">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-3">08. Recognition</p>
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-3">07. Recognition</p>
             <h2 className="text-4xl md:text-5xl font-bold">
               Achievements
             </h2>
@@ -886,7 +868,7 @@ function Index() {
         </section>
 
         {/* Contact */}
-        <Section id="contact" eyebrow="09. Connection" title="Initialize Contact">
+        <Section id="contact" eyebrow="08. Connection" title="Initialize Contact">
           <div className="glass-panel rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-50" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary/20 blur-[120px] rounded-full -z-10 group-hover:bg-primary/30 transition-colors duration-1000" />
