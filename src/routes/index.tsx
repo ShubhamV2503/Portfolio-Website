@@ -456,7 +456,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="relative aspect-square md:aspect-auto md:h-[500px] w-full max-w-md mx-auto group perspective-1000">
+          <div className="relative aspect-square md:aspect-auto md:h-[400px] w-full max-w-[358px] mx-auto group perspective-1000">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-50" />
             <div className="glass-panel w-full h-full rounded-3xl border border-white/10 relative overflow-hidden transform transition-transform duration-700 group-hover:rotate-y-12">
               <img
