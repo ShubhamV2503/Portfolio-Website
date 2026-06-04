@@ -346,9 +346,42 @@ const experience = [
 function Index() {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const categories = ["ALL", "AI PROJECTS", "DATA ENGINEERING", "APP DEVELOPMENT"];
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
   const filteredProjects = activeCategory === "ALL" 
     ? projects 
     : projects.filter(p => p.category === activeCategory);
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus("submitting");
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/vishwakarmashubham.2503@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        setFormStatus("success");
+        form.reset();
+        setTimeout(() => setFormStatus("idle"), 4000);
+      } else {
+        setFormStatus("error");
+        setTimeout(() => setFormStatus("idle"), 4000);
+      }
+    } catch (error) {
+      setFormStatus("error");
+      setTimeout(() => setFormStatus("idle"), 4000);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 selection:text-primary">
@@ -879,7 +912,7 @@ function Index() {
               next big thing.
             </p>
 
-            <form action="https://formsubmit.co/vishwakarmashubham.2503@gmail.com" method="POST" className="max-w-xl mx-auto text-left flex flex-col gap-4 mt-8 relative z-10">
+            <form onSubmit={handleFormSubmit} action="https://formsubmit.co/vishwakarmashubham.2503@gmail.com" method="POST" className="max-w-xl mx-auto text-left flex flex-col gap-4 mt-8 relative z-10">
               {/* Formsubmit config */}
               <input type="hidden" name="_subject" value="New message from portfolio!" />
               <input type="hidden" name="_captcha" value="false" />
@@ -910,10 +943,21 @@ function Index() {
               
               <button 
                 type="submit" 
-                className="w-full bg-[#3b82f6] text-white font-bold rounded-2xl px-5 py-4 hover:bg-[#2563eb] hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2"
+                disabled={formStatus === "submitting" || formStatus === "success"}
+                className={`w-full font-bold rounded-2xl px-5 py-4 flex items-center justify-center gap-2 mt-2 transition-all ${
+                  formStatus === "success" 
+                    ? "bg-green-500 text-white" 
+                    : formStatus === "error"
+                    ? "bg-red-500 text-white"
+                    : "bg-[#3b82f6] text-white hover:bg-[#2563eb] hover:shadow-lg"
+                }`}
               >
-                Send Message
-                <ArrowRight className="h-4 w-4" />
+                {formStatus === "idle" && (
+                  <>Send Message <ArrowRight className="h-4 w-4" /></>
+                )}
+                {formStatus === "submitting" && "Sending..."}
+                {formStatus === "success" && "Message Sent Successfully!"}
+                {formStatus === "error" && "Error sending. Try email instead."}
               </button>
 
               <div className="text-center mt-6 text-sm text-muted-foreground/80">
