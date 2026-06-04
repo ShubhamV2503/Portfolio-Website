@@ -68,6 +68,7 @@ const nav = [
   { href: "#certifications", label: "Certifications" },
   { href: "#publications", label: "Publications" },
   { href: "#projects", label: "Projects" },
+  { href: "#achievements", label: "Achievements" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -830,8 +831,62 @@ function Index() {
           </div>
         </Section>
 
+        {/* Achievements Ticker */}
+        <section id="achievements" className="py-24 overflow-hidden">
+          <style>{`
+            @keyframes ticker-scroll {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .ticker-track {
+              display: flex;
+              width: max-content;
+              animation: ticker-scroll 28s linear infinite;
+            }
+            .ticker-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+
+          <div className="max-w-7xl mx-auto px-6 mb-12">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-3">08. Recognition</p>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Achievements
+            </h2>
+          </div>
+
+          <div className="relative">
+            {/* fade edges */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-background to-transparent" />
+
+            <div className="ticker-track">
+              {[
+                { emoji: "🎓", label: "Selected", text: "Amazon ML Summer School Trainee Program 2025, chosen among 3,000+ applicants across India" },
+                { emoji: "🏅", label: "Kaggle Expert", text: "Discussion Expert (2×) — ranked top 20% across 40+ competitions, won a Kaggle competition" },
+                { emoji: "💼", label: "Delivered", text: "2 GenAI-based freelance projects via Upwork for international clients from Bangladesh and Singapore" },
+                { emoji: "🏆", label: "Finalist", text: "L&T TechGium 2024 Hackathon — National-level engineering challenge" },
+                // duplicated for seamless loop
+                { emoji: "🎓", label: "Selected", text: "Amazon ML Summer School Trainee Program 2025, chosen among 3,000+ applicants across India" },
+                { emoji: "🏅", label: "Kaggle Expert", text: "Discussion Expert (2×) — ranked top 20% across 40+ competitions, won a Kaggle competition" },
+                { emoji: "💼", label: "Delivered", text: "2 GenAI-based freelance projects via Upwork for international clients from Bangladesh and Singapore" },
+                { emoji: "🏆", label: "Finalist", text: "L&T TechGium 2024 Hackathon — National-level engineering challenge" },
+              ].map((a, i) => (
+                <div
+                  key={i}
+                  className="mx-4 shrink-0 w-[320px] bg-white border border-[#e5e7eb] rounded-2xl p-7 flex flex-col gap-3 hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
+                >
+                  <div className="text-3xl">{a.emoji}</div>
+                  <div className="text-xs font-bold text-primary uppercase tracking-widest">{a.label}</div>
+                  <p className="text-sm text-foreground font-medium leading-relaxed">{a.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
-        <Section id="contact" eyebrow="08. Connection" title="Initialize Contact">
+        <Section id="contact" eyebrow="09. Connection" title="Initialize Contact">
           <div className="glass-panel rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-50" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary/20 blur-[120px] rounded-full -z-10 group-hover:bg-primary/30 transition-colors duration-1000" />
