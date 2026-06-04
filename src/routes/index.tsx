@@ -68,7 +68,6 @@ const nav = [
   { href: "#publications", label: "Publications" },
   { href: "#projects", label: "Projects" },
   { href: "#achievements", label: "Achievements" },
-  { href: "#contact", label: "Contact" },
 ];
 
 const pipeline = [
@@ -404,7 +403,7 @@ function Index() {
             ))}
           </nav>
           <a
-            href="mailto:vishwakarmashubham.2503@gmail.com"
+            href="#contact"
             className="hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-all hover:scale-105 hover:shadow-primary/50"
             style={{ background: "var(--gradient-primary)" }}
           >
