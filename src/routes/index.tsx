@@ -39,6 +39,9 @@ import {
   Crown,
   MonitorPlay,
   BookOpen,
+  Moon,
+  Sun,
+  FileText,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -419,13 +422,25 @@ function Index() {
               </a>
             ))}
           </nav>
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-all hover:scale-105 hover:shadow-primary/50"
-            style={{ background: "var(--gradient-primary)" }}
-          >
-            <Mail className="h-4 w-4" /> Connect
-          </a>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => {
+                document.documentElement.classList.toggle('dark');
+              }}
+              className="p-2 rounded-full hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+              aria-label="Toggle dark mode"
+            >
+              <Moon className="h-5 w-5 hidden dark:block" />
+              <Sun className="h-5 w-5 block dark:hidden" />
+            </button>
+            <a
+              href="#contact"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-all hover:scale-105 hover:shadow-primary/50"
+              style={{ background: "var(--gradient-primary)" }}
+            >
+              <Mail className="h-4 w-4" /> Connect
+            </a>
+          </div>
         </div>
       </header>
 
@@ -461,6 +476,14 @@ function Index() {
                 style={{ background: "var(--gradient-primary)" }}
               >
                 Experience <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border glass-panel px-7 py-3.5 font-medium hover:border-primary/50 hover:text-primary transition-all"
+              >
+                <FileText className="h-4 w-4" /> View Resume
               </a>
               <a
                 href="#contact"
