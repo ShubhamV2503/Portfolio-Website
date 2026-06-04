@@ -440,19 +440,17 @@ function Index() {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="#projects"
+                href="#experience"
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-1"
                 style={{ background: "var(--gradient-primary)" }}
               >
-                View Architecture <ArrowRight className="h-4 w-4" />
+                Experience <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://github.com/ShubhamV2503"
-                target="_blank"
-                rel="noreferrer"
+                href="#contact"
                 className="inline-flex items-center gap-2 rounded-full border border-border glass-panel px-7 py-3.5 font-medium hover:border-primary/50 hover:text-primary transition-all"
               >
-                <Github className="h-4 w-4" /> GitHub
+                <Mail className="h-4 w-4" /> Let's connect
               </a>
             </div>
           </div>
