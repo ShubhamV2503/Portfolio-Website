@@ -492,36 +492,21 @@ function Index() {
             </div>
             <div className="space-y-6 text-xl text-muted-foreground leading-relaxed font-light">
               <p>
-                I'm a Data Scientist with 2.3 years of experience from Mumbai, currently pursuing an{" "}
+                I'm a Data Scientist from Mumbai with an{" "}
                 <strong className="text-foreground font-medium">
                   MTech in Data Science & Business Analytics
                 </strong>{" "}
-                at NMIMS. I've worked across production-ready ML, computer vision pipelines, and
-                Agentic AI systems at companies like{" "}
-                <strong className="text-foreground font-medium">LTIMindtree, Pando Data</strong>,
-                and <strong className="text-foreground font-medium">ITJOBXS</strong>.
+                from NMIMS.
               </p>
               <p>
-                I'm fascinated by problems where data meets{" "}
-                <strong className="text-foreground font-medium">real-world decision-making</strong>,
-                and I love building systems that are not just accurate, but{" "}
-                <strong className="text-foreground font-medium">explainable and impactful</strong>.
+                Over the past few years, I've worked across Data Science, Analytics, Software Engineering, and Generative AI, building solutions that transform raw data into actionable business outcomes. My experience spans predictive modeling, computer vision, time-series forecasting, data engineering pipelines, and Agentic AI systems, with hands-on exposure through organizations such as{" "}
+                <strong className="text-foreground font-medium">LTIMindtree, Pando Data, and ITJOBXS</strong>.
               </p>
               <p>
-                Outside work, I stay plugged into the AI community — publishing{" "}
-                <strong className="text-foreground font-medium">
-                  peer-reviewed research in IEEE
-                </strong>
-                , sharing knowledge as a{" "}
-                <strong className="text-foreground font-medium">Kaggle Discussion Expert</strong>,
-                and upskilling through programs like the{" "}
-                <strong className="text-foreground font-medium">Amazon ML Summer School</strong>.
-                I've learned that the best ideas rarely come from staring at a screen alone. They
-                come from{" "}
-                <strong className="text-foreground font-medium">
-                  collaboration, communities, and showing up
-                </strong>{" "}
-                even when no one's keeping score.
+                What excites me most is solving real-world problems where technology creates measurable impact. Whether it's designing multi-agent AI workflows, building scalable ML pipelines, deploying computer vision systems, or developing intelligent data products, I enjoy turning complex challenges into practical solutions that people can trust and use.
+              </p>
+              <p>
+                Beyond technical work, I'm passionate about continuous learning and contributing to the tech community. I actively explore emerging trends in AI, data infrastructure, and startups, participate in hackathons and industry events, publish research, and share insights with fellow builders. I believe the best innovations happen when curiosity, collaboration, and execution come together.
               </p>
             </div>
           </div>
