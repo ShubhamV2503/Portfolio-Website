@@ -964,21 +964,21 @@ function Index() {
               </div>
             </form>
 
-            <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <div className="mt-12 flex flex-wrap justify-center gap-6">
               {[
-                { i: Github, l: "GitHub", h: "https://github.com/ShubhamV2503" },
-                { i: Linkedin, l: "LinkedIn", h: "https://linkedin.com/in/shubhamv2503" },
-                { i: Trophy, l: "Kaggle", h: "https://www.kaggle.com/rayuga2503" },
-                { i: Code2, l: "LeetCode", h: "https://leetcode.com/u/rayuga2503/" },
-              ].map(({ i: Icon, l, h }) => (
+                { img: "/images/github.png", l: "GitHub", h: "https://github.com/ShubhamV2503" },
+                { img: "/images/linkedin.png", l: "LinkedIn", h: "https://linkedin.com/in/shubhamv2503" },
+                { img: "/images/kaggle_logo.png", l: "Kaggle", h: "https://www.kaggle.com/rayuga2503" },
+                { img: "/images/LeetCode_logo.webp", l: "LeetCode", h: "https://leetcode.com/u/rayuga2503/" },
+              ].map(({ img, l, h }) => (
                 <a
                   key={l}
                   href={h}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center h-12 w-12 rounded-full glass-panel text-muted-foreground hover:text-primary hover:border-primary/50 transition-all hover:-translate-y-1"
+                  className="inline-flex items-center justify-center h-14 w-14 rounded-full glass-panel hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden p-2.5 bg-white/40 dark:bg-black/20"
                 >
-                  <Icon className="h-5 w-5" />
+                  <img src={img} alt={l} className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
                   <span className="sr-only">{l}</span>
                 </a>
               ))}
