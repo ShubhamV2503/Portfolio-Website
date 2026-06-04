@@ -217,10 +217,10 @@ const skillGroups = [
 ];
 
 const certifications = [
-  { y: "2024", t: "Google Adv. Data Analytics", s: "Coursera" },
-  { y: "2025", t: "Amazon ML Summer School", s: "Amazon" },
-  { y: "2023", t: "IBM Adv. Data Science", s: "IBM" },
-  { y: "2023", t: "AWS Cloud Practitioner", s: "AWS" },
+  { y: "2024", t: "Google Adv. Data Analytics", s: "Coursera", pdf: "/certificates/Google Advance Data Analytics.pdf" },
+  { y: "2025", t: "Amazon ML Summer School", s: "Amazon", pdf: "/certificates/Amazon ML Summer School.pdf" },
+  { y: "2023", t: "IBM Adv. Data Science", s: "IBM", pdf: "/certificates/IBM Advance Data Science & AI Certification.pdf" },
+  { y: "2023", t: "AWS Cloud Practitioner", s: "AWS", pdf: "/certificates/AWS CERTIFIED CLOUD.pdf" },
 ];
 
 const publications = [
@@ -692,11 +692,20 @@ function Index() {
         <Section id="certifications" eyebrow="04. Verification" title="Certifications">
           <div className="grid md:grid-cols-2 gap-6">
             {certifications.map((c) => (
-              <div key={c.t} className="glass-panel p-8 rounded-[1.5rem] flex flex-col justify-center transition-all duration-300 hover:shadow-sm hover:border-border/80 border-[#e5e7eb]">
-                <div className="text-sm font-semibold text-[#3b82f6] mb-3">{c.y}</div>
+              <a 
+                key={c.t} 
+                href={c.pdf} 
+                target="_blank" 
+                rel="noreferrer"
+                className="glass-panel p-8 rounded-[1.5rem] flex flex-col justify-center transition-all duration-300 hover:shadow-[0_4px_20px_rgb(0,0,0,0.05)] hover:border-primary/30 hover:-translate-y-1 border-[#e5e7eb]"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-sm font-semibold text-[#3b82f6]">{c.y}</div>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground/50" />
+                </div>
                 <div className="text-xl font-bold text-foreground mb-1.5">{c.t}</div>
                 <div className="text-sm text-muted-foreground font-medium">{c.s}</div>
-              </div>
+              </a>
             ))}
           </div>
         </Section>
