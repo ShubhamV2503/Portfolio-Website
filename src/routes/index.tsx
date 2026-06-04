@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -37,6 +38,7 @@ import {
   GitMerge,
   Crown,
   MonitorPlay,
+  BookOpen,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -62,8 +64,10 @@ const nav = [
   { href: "#about", label: "About" },
   { href: "#process", label: "Pipeline" },
   { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#publications", label: "Publications" },
+  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -213,10 +217,33 @@ const skillGroups = [
   },
 ];
 
+const certifications = [
+  { y: "2024", t: "Google Adv. Data Analytics", s: "Coursera" },
+  { y: "2025", t: "Amazon ML Summer School", s: "Amazon" },
+  { y: "2023", t: "IBM Adv. Data Science", s: "IBM" },
+  { y: "2023", t: "AWS Cloud Practitioner", s: "AWS" },
+];
+
+const publications = [
+  {
+    title: "Predictive Analytics for Healthcare Systems (Example)",
+    journal: "IEEE Transactions on Medical Imaging",
+    year: "2023",
+    link: "#",
+  },
+  {
+    title: "Optimizing Agentic AI for Invoice Parsing (Example)",
+    journal: "KDD 2024 Workshop",
+    year: "2024",
+    link: "#",
+  }
+];
+
 const projects = [
   {
     featured: true,
     tag: "LTIMindtree · Enterprise AI",
+    category: "AI PROJECTS",
     title: "Agentic AI Invoice Compliance",
     desc: "LangGraph-based multi-agent GenAI system orchestrating 3 specialized agents. Extracts compliance data from 5,000+ Italian invoices. Parallel voting architecture reduced end-to-end latency by 50% while hitting perfect recall.",
     metrics: ["100% Recall", "50% Latency Reduction", "Multi-Agent"],
@@ -224,6 +251,7 @@ const projects = [
   },
   {
     title: "NeuroScan AI",
+    category: "AI PROJECTS",
     desc: "4-layer encoder-decoder that removes Poisson & periodic noise from brain CT scans while preserving diagnostic features. Lifted classification accuracy to 87%. Deployed on AWS EC2.",
     stack: ["PyTorch", "CNN", "AWS EC2", "DICOM"],
     github: "https://github.com/ShubhamV2503/NeuroScanAI--CT-Scan-Image-Denoising",
@@ -231,6 +259,7 @@ const projects = [
   },
   {
     title: "Gold Price Forecasting",
+    category: "DATA ENGINEERING",
     desc: "Automated XAUUSD pipeline via Alpha Vantage. Airflow DAGs process 7 years of S3 records. Migrated from Prophet to SARIMAX cutting MAPE by 14.16%.",
     stack: ["Airflow", "SARIMAX", "S3", "Redshift"],
     github: "https://github.com/ShubhamV2503/Gold-Insight-Forecastor",
@@ -238,6 +267,7 @@ const projects = [
   },
   {
     title: "YouTube Q&A Agent",
+    category: "AI PROJECTS",
     desc: "Conversational agent for contextual Q&A over transcripts. Built an ETL pipeline across 10+ APIs. Bloom Filter layer cut redundant queries by 30% and lifted relevance.",
     stack: ["LangChain", "Python", "GCP", "Redshift"],
   },
@@ -290,6 +320,12 @@ const experience = [
 ];
 
 function Index() {
+  const [activeCategory, setActiveCategory] = useState("ALL");
+  const categories = ["ALL", "AI PROJECTS", "DATA ENGINEERING", "APP DEVELOPMENT"];
+  const filteredProjects = activeCategory === "ALL" 
+    ? projects 
+    : projects.filter(p => p.category === activeCategory);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 selection:text-primary">
       {/* Ambient Glows */}
@@ -609,31 +645,54 @@ function Index() {
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold mt-12 mb-6 text-foreground/80">
-                Certifications
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { y: "2024", t: "Google Adv. Data Analytics", s: "Coursera" },
-                  { y: "2025", t: "Amazon ML Summer School", s: "Amazon" },
-                  { y: "2023", t: "IBM Adv. Data Science", s: "IBM" },
-                  { y: "2023", t: "AWS Cloud Practitioner", s: "AWS" },
-                ].map((c) => (
-                  <div key={c.t} className="glass-panel p-4 rounded-xl text-sm">
-                    <div className="text-xs text-primary mb-1">{c.y}</div>
-                    <div className="font-semibold">{c.t}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{c.s}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </Section>
 
+        {/* Certifications */}
+        <Section id="certifications" eyebrow="05. Verification" title="Certifications">
+          <div className="grid md:grid-cols-2 gap-6">
+            {certifications.map((c) => (
+              <div key={c.t} className="glass-panel p-8 rounded-[1.5rem] flex flex-col justify-center transition-all duration-300 hover:shadow-sm hover:border-border/80 border-[#e5e7eb]">
+                <div className="text-sm font-semibold text-[#3b82f6] mb-3">{c.y}</div>
+                <div className="text-xl font-bold text-foreground mb-1.5">{c.t}</div>
+                <div className="text-sm text-muted-foreground font-medium">{c.s}</div>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* Publications */}
+        <Section id="publications" eyebrow="06. Research" title="Publications & Research Papers">
+          <div className="grid md:grid-cols-2 gap-6">
+            {publications.map((p, idx) => (
+              <a key={idx} href={p.link} target="_blank" rel="noreferrer" className="group glass-panel p-8 rounded-3xl flex flex-col justify-center hover:border-primary/50 transition-colors hover:shadow-sm">
+                <div className="text-sm font-mono text-primary mb-3">{p.year}</div>
+                <div className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{p.title}</div>
+                <div className="text-sm text-muted-foreground font-medium flex items-center gap-2">
+                  <BookOpen className="h-4 w-4" />
+                  {p.journal}
+                </div>
+              </a>
+            ))}
+          </div>
+        </Section>
+
         {/* Projects */}
-        <Section id="projects" eyebrow="05. Execution" title="Selected Work">
+        <Section id="projects" eyebrow="07. Execution" title="Selected Work">
+          <div className="flex flex-wrap items-center gap-4 mb-12">
+            {categories.map(cat => (
+              <button 
+                key={cat} 
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all ${activeCategory === cat ? "bg-[#3b82f6] text-white border border-[#3b82f6]" : "bg-transparent border border-border text-muted-foreground hover:border-[#3b82f6]/50 hover:text-foreground"}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
           <div className="grid lg:grid-cols-2 gap-8">
-            {projects.map((p) => (
+            {filteredProjects.map((p) => (
               <article
                 key={p.title}
                 className={`group glass-panel rounded-3xl overflow-hidden flex flex-col relative transition-all duration-500 hover:border-primary/50 hover:shadow-[var(--shadow-elegant)] ${p.featured ? "lg:col-span-2" : ""}`}
@@ -711,7 +770,7 @@ function Index() {
         </Section>
 
         {/* Contact */}
-        <Section id="contact" eyebrow="06. Connection" title="Initialize Contact">
+        <Section id="contact" eyebrow="08. Connection" title="Initialize Contact">
           <div className="glass-panel rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-50" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary/20 blur-[120px] rounded-full -z-10 group-hover:bg-primary/30 transition-colors duration-1000" />
