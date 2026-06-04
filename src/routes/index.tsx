@@ -228,25 +228,37 @@ const publications = [
   {
     title: "Autoencoder-Based Dual Noise Suppression for Brain CT Imaging: SNR Optimization Toward Accurate Clinical Diagnostics",
     journal: '3rd IEEE DMIHER (DU) International Conference on "Artificial Intelligence in Healthcare, Education & Industry" (IDICAIHEI 2025)',
+    abbr: "IDICAIHEI",
     year: "Nov 2025",
+    publisher: "IEEE",
+    desc: "Proposes a dual-stage autoencoder pipeline that suppresses Gaussian + Poisson noise on brain CT scans, achieving significant SNR improvement while preserving tumor-region morphology for downstream detection.",
     link: "https://ieeexplore.ieee.org/document/11378629",
   },
   {
     title: "Feel Good AI: Voice-Enabled Emotion-based Music Recommendation System",
     journal: "2024 International Conference on Advances in Computing, Communication and Applied Informatics (ACCAI)",
+    abbr: "ACCAI",
     year: "Jul 2024",
+    publisher: "IEEE",
+    desc: "A voice-driven emotion recognition system that maps real-time acoustic features to music playlists, delivering personalized recommendations with high user satisfaction scores.",
     link: "https://ieeexplore.ieee.org/document/10602424",
   },
   {
     title: "Utilization of Citrus-Enzyme in concrete as an Admixture",
     journal: "International Journal of Novel Research and Development (IJNRD)",
+    abbr: "IJNRD",
     year: "Oct 2023",
+    publisher: "IJNRD",
+    desc: "Investigates the structural and chemical effects of citrus-enzyme as a bio-admixture in concrete, evaluating compressive strength, workability, and sustainability impact.",
     link: "https://www.ijnrd.org/viewpaperforall.php?paper=IJNRD2310002",
   },
   {
     title: "Image Colorization using AI",
     journal: "International Journal of All Research Education and Scientific Methods (IJARESM)",
+    abbr: "IJARESM",
     year: "Oct 2022",
+    publisher: "IJARESM",
+    desc: "Implements a deep convolutional neural network for automatic grayscale image colorization, achieving perceptually realistic colorization results across diverse image categories.",
     link: "https://www.ijaresm.com/image-colorization-using-ai",
   }
 ];
@@ -676,14 +688,51 @@ function Index() {
 
         {/* Publications */}
         <Section id="publications" eyebrow="06. Research" title="Publications & Research Papers">
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5">
             {publications.map((p, idx) => (
-              <a key={idx} href={p.link} target="_blank" rel="noreferrer" className="group glass-panel p-8 rounded-3xl flex flex-col justify-center hover:border-primary/50 transition-colors hover:shadow-sm">
-                <div className="text-sm font-mono text-primary mb-3">{p.year}</div>
-                <div className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{p.title}</div>
-                <div className="text-sm text-muted-foreground font-medium flex items-center gap-2">
-                  <BookOpen className="h-4 w-4" />
-                  {p.journal}
+              <a
+                key={idx}
+                href={p.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative bg-white border border-[#e5e7eb] rounded-2xl p-7 flex flex-col gap-4 transition-all duration-300 hover:border-[#06b6d4]/60 hover:shadow-[0_0_0_2px_rgba(6,182,212,0.15)] cursor-pointer"
+              >
+                {/* Top row: Publisher + External link */}
+                <div className="flex items-start justify-between gap-3">
+                  {p.publisher === "IEEE" ? (
+                    <div className="flex items-center gap-1.5">
+                      <svg width="22" height="22" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2L4 11V29L20 38L36 29V11L20 2Z" fill="#006699" />
+                        <path d="M20 8L9 14V26L20 32L31 26V14L20 8Z" fill="white" />
+                        <path d="M20 14L14 17.5V24.5L20 28L26 24.5V17.5L20 14Z" fill="#006699" />
+                      </svg>
+                      <span className="text-[#006699] font-bold text-base tracking-wide">IEEE</span>
+                    </div>
+                  ) : (
+                    <span className="text-[13px] font-bold text-muted-foreground border border-border rounded-full px-3 py-0.5 bg-background">
+                      {p.publisher}
+                    </span>
+                  )}
+                  <ExternalLink className="h-4 w-4 text-muted-foreground/50 group-hover:text-[#06b6d4] transition-colors shrink-0 mt-0.5" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-[15px] font-bold text-foreground leading-snug group-hover:text-[#0e7490] transition-colors">
+                  {p.title}
+                </h3>
+
+                {/* Abbr · Year */}
+                <p className="text-[13px] text-muted-foreground font-medium">
+                  {p.abbr} &nbsp;·&nbsp; {p.year}
+                </p>
+
+                {/* Divider + Description revealed on hover */}
+                <div className="overflow-hidden max-h-0 group-hover:max-h-[120px] transition-all duration-500 ease-in-out">
+                  <div className="border-t border-[#e5e7eb] pt-4">
+                    <p className="text-[13px] text-muted-foreground leading-relaxed">
+                      {p.desc}
+                    </p>
+                  </div>
                 </div>
               </a>
             ))}
