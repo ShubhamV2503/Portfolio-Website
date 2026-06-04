@@ -226,16 +226,28 @@ const certifications = [
 
 const publications = [
   {
-    title: "Predictive Analytics for Healthcare Systems (Example)",
-    journal: "IEEE Transactions on Medical Imaging",
-    year: "2023",
-    link: "#",
+    title: "Autoencoder-Based Dual Noise Suppression for Brain CT Imaging: SNR Optimization Toward Accurate Clinical Diagnostics",
+    journal: '3rd IEEE DMIHER (DU) International Conference on "Artificial Intelligence in Healthcare, Education & Industry" (IDICAIHEI 2025)',
+    year: "Nov 2025",
+    link: "https://ieeexplore.ieee.org/document/11378629",
   },
   {
-    title: "Optimizing Agentic AI for Invoice Parsing (Example)",
-    journal: "KDD 2024 Workshop",
-    year: "2024",
-    link: "#",
+    title: "Feel Good AI: Voice-Enabled Emotion-based Music Recommendation System",
+    journal: "2024 International Conference on Advances in Computing, Communication and Applied Informatics (ACCAI)",
+    year: "Jul 2024",
+    link: "https://ieeexplore.ieee.org/document/10602424",
+  },
+  {
+    title: "Utilization of Citrus-Enzyme in concrete as an Admixture",
+    journal: "International Journal of Novel Research and Development (IJNRD)",
+    year: "Oct 2023",
+    link: "https://www.ijnrd.org/viewpaperforall.php?paper=IJNRD2310002",
+  },
+  {
+    title: "Image Colorization using AI",
+    journal: "International Journal of All Research Education and Scientific Methods (IJARESM)",
+    year: "Oct 2022",
+    link: "https://www.ijaresm.com/image-colorization-using-ai",
   }
 ];
 
