@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -366,6 +366,23 @@ function Index() {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const categories = ["ALL", "AI PROJECTS", "DATA ENGINEERING", "APP DEVELOPMENT"];
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("theme");
+      return stored ? stored === "dark" : true; // default to dark
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
 
   const filteredProjects = activeCategory === "ALL" 
     ? projects 
@@ -424,9 +441,7 @@ function Index() {
           </nav>
           <div className="flex items-center gap-4">
             <button
-              onClick={() => {
-                document.documentElement.classList.toggle('dark');
-              }}
+              onClick={() => setIsDark((d) => !d)}
               className="p-2 rounded-full hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
               aria-label="Toggle dark mode"
             >
