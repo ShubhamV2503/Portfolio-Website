@@ -562,38 +562,70 @@ function Index() {
         </Section>
 
 
-        {/* Skills Bento Box */}
         {/* Skills */}
         <Section id="skills" eyebrow="02. Tech Stack" title="Core Technologies.">
-          <p className="text-muted-foreground text-lg mb-12 max-w-2xl">
+          <p className="text-muted-foreground text-lg mb-14 max-w-2xl font-light">
             A curated stack of tools and frameworks I use to engineer production-ready ML models, GenAI agents, and scalable data pipelines.
           </p>
-          <div className="space-y-12">
-            {skillGroups.map((g) => (
-              <div key={g.title} className="relative">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-2.5 h-2.5 rounded-full ${g.dotClass}`} />
-                  <h3 className="text-lg font-bold text-foreground">{g.title}</h3>
-                  <div className="h-[1px] flex-1 bg-border/50 ml-4" />
+
+          <div className="divide-y divide-border/40">
+            {skillGroups.map((g, idx) => {
+              const accentColors: Record<string, string> = {
+                "Languages": "bg-emerald-500",
+                "MLOps Tools": "bg-blue-500",
+                "GenAI": "bg-violet-500",
+                "Technology & FrameWorks": "bg-amber-500",
+                "AI/ML": "bg-cyan-500",
+                "Soft Skills": "bg-slate-400",
+              };
+              const textColors: Record<string, string> = {
+                "Languages": "text-emerald-500",
+                "MLOps Tools": "text-blue-500",
+                "GenAI": "text-violet-500",
+                "Technology & FrameWorks": "text-amber-500",
+                "AI/ML": "text-cyan-500",
+                "Soft Skills": "text-slate-400",
+              };
+              const accent = accentColors[g.title] ?? "bg-primary";
+              const textColor = textColors[g.title] ?? "text-primary";
+              return (
+                <div
+                  key={g.title}
+                  className="group flex flex-col sm:flex-row gap-4 sm:gap-8 py-7 hover:bg-primary/[0.02] transition-colors duration-300 relative pl-5"
+                >
+                  {/* Left accent bar */}
+                  <div className={`absolute left-0 top-7 bottom-7 w-[3px] rounded-full ${accent} opacity-70 group-hover:opacity-100 transition-opacity`} />
+
+                  {/* Category label */}
+                  <div className="sm:w-44 shrink-0 flex items-start pt-0.5">
+                    <span className={`text-sm font-bold tracking-widest uppercase ${textColor} font-mono`}>
+                      {g.title}
+                    </span>
+                  </div>
+
+                  {/* Skills — inline with dot separators */}
+                  <div className="flex-1 flex flex-wrap items-center gap-x-1 gap-y-1">
+                    {g.items.map((item, i) => {
+                      const Icon = item.icon;
+                      return (
+                        <span key={item.name} className="flex items-center gap-1.5">
+                          <span className="flex items-center gap-1.5 text-[15px] text-foreground/80 font-light group-hover:text-foreground transition-colors duration-200">
+                            <Icon className={`h-3.5 w-3.5 ${textColor} opacity-70`} />
+                            {item.name}
+                          </span>
+                          {i < g.items.length - 1 && (
+                            <span className="text-border mx-1 select-none">·</span>
+                          )}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  {g.items.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <span
-                        key={item.name}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-xl border ${g.borderClass} ${g.bgClass} ${g.textClass} text-sm font-medium transition-all hover:-translate-y-0.5`}
-                      >
-                        <Icon className="h-4 w-4" />
-                        {item.name}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Section>
+
 
         {/* Experience & Education */}
         <Section id="experience" eyebrow="03. Timeline" title="Experience & Education">
