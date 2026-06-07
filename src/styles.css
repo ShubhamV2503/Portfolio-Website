@@ -102,31 +102,29 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
-/* ───────────────────────────────────────────────────
-   DARK MODE — OLED Deep Black + Electric Blue/Cyan
+/* DARK MODE - OLED Deep Black + Electric Blue/Cyan
    Design: AI/Data Science professional portfolio
-   No red tones. Accent: vivid electric blue #3B82F6
-──────────────────────────────────────────────────── */
+   No red tones. Accent: vivid electric blue */
 .dark {
-  /* Backgrounds — pure OLED-grade darks */
+  /* Backgrounds - pure OLED-grade darks */
   --background: oklch(0.08 0.008 255);
   --foreground: oklch(0.97 0.005 220);
 
-  /* Cards — deep midnight with subtle blue tint */
+  /* Cards - deep midnight with subtle blue tint */
   --card: oklch(0.13 0.015 255 / 0.7);
   --card-foreground: oklch(0.95 0.005 220);
   --popover: oklch(0.10 0.012 255 / 0.92);
   --popover-foreground: oklch(0.95 0.005 220);
 
-  /* Primary — vivid electric blue (replaces purple/red) */
+  /* Primary - vivid electric blue */
   --primary: oklch(0.65 0.22 250);
   --primary-foreground: oklch(0.98 0.005 220);
   --primary-glow: oklch(0.72 0.18 220);
 
   /* Supporting neutrals */
-  --secondary: oklch(1 1 1 / 0.05);
+  --secondary: oklch(1 0 0 / 0.05);
   --secondary-foreground: oklch(0.95 0.005 220);
-  --muted: oklch(1 1 1 / 0.06);
+  --muted: oklch(1 0 0 / 0.06);
   --muted-foreground: oklch(0.62 0.02 240);
   --accent: oklch(0.65 0.22 250 / 0.12);
   --accent-foreground: oklch(0.92 0.01 220);
@@ -135,17 +133,17 @@
   --gradient-primary: linear-gradient(135deg, oklch(0.65 0.22 250), oklch(0.72 0.18 220));
   --gradient-soft: linear-gradient(180deg, oklch(0.14 0.02 255 / 0.4), transparent);
 
-  /* Shadows — blue-tinted glow */
+  /* Shadows - blue-tinted glow */
   --shadow-elegant: 0 20px 60px -20px oklch(0.65 0.22 250 / 0.35);
   --shadow-card: 0 8px 32px 0 oklch(0 0 0 / 0.6);
 
-  /* Destructive — kept safe, no red spill into theme */
+  /* Destructive - kept safe */
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.97 0.005 220);
 
-  /* Borders & inputs */
-  --border: oklch(1 1 1 / 0.08);
-  --input: oklch(1 1 1 / 0.1);
+  /* Borders and inputs */
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.1);
   --ring: oklch(0.65 0.22 250);
 
   /* Charts */
@@ -156,13 +154,13 @@
   --chart-5: oklch(0.68 0.18 200);
 
   /* Sidebar */
-  --sidebar: oklch(0.09 0.010 255);
+  --sidebar: oklch(0.09 0.01 255);
   --sidebar-foreground: oklch(0.95 0.005 220);
   --sidebar-primary: oklch(0.65 0.22 250);
   --sidebar-primary-foreground: oklch(0.98 0.005 220);
-  --sidebar-accent: oklch(1 1 1 / 0.06);
+  --sidebar-accent: oklch(1 0 0 / 0.06);
   --sidebar-accent-foreground: oklch(0.95 0.005 220);
-  --sidebar-border: oklch(1 1 1 / 0.08);
+  --sidebar-border: oklch(1 0 0 / 0.08);
   --sidebar-ring: oklch(0.65 0.22 250);
 }
 
@@ -178,7 +176,7 @@
   }
 }
 
-/* ── Glassmorphism ────────────────────────────────── */
+/* Glassmorphism */
 .glass-panel {
   @apply bg-card/60 backdrop-blur-xl border border-border;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
@@ -190,12 +188,11 @@
   box-shadow: 0 0 0 1px oklch(0.65 0.22 250 / 0.1), 0 20px 60px -20px oklch(0.65 0.22 250 / 0.2);
 }
 
-/* ── Utility: glow text ───────────────────────────── */
+/* Glow text utility */
 .dark .glow-text {
   text-shadow: 0 0 20px oklch(0.65 0.22 250 / 0.6);
 }
 
-/* ── Smooth theme transition ──────────────────────── */
 *, *::before, *::after {
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
