@@ -642,7 +642,7 @@ function Index() {
                     
                     {/* Logo Box */}
                     {e.logo && (
-                      <div className="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-white border border-border shadow-sm overflow-hidden">
+                      <div className="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
                         <img 
                           src={e.logo} 
                           alt={`${e.company} logo`} 
@@ -721,7 +721,7 @@ function Index() {
                     className="glass-panel p-6 rounded-2xl group hover:border-primary/40 transition-colors flex flex-col sm:flex-row gap-4"
                   >
                     {ed.logo && (
-                      <div className="shrink-0 flex items-center justify-center w-14 h-14 rounded-xl bg-white border border-border shadow-sm overflow-hidden">
+                      <div className="shrink-0 flex items-center justify-center w-14 h-14 rounded-xl bg-card border border-border shadow-sm overflow-hidden">
                         <img 
                           src={ed.logo} 
                           alt={`${ed.s} logo`} 
@@ -786,7 +786,7 @@ function Index() {
                 href={p.link}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative bg-white border border-[#e5e7eb] rounded-2xl p-7 flex flex-col gap-4 transition-all duration-300 hover:border-[#06b6d4]/60 hover:shadow-[0_0_0_2px_rgba(6,182,212,0.15)] cursor-pointer"
+                className="group relative bg-card border border-border rounded-2xl p-7 flex flex-col gap-4 transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_0_2px_oklch(0.65_0.22_250_/_0.15)] cursor-pointer"
               >
                 {/* Top row: Publisher + External link */}
                 <div className="flex items-start justify-between gap-3">
@@ -808,7 +808,7 @@ function Index() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-[15px] font-bold text-foreground leading-snug group-hover:text-[#0e7490] transition-colors">
+                <h3 className="text-[15px] font-bold text-foreground leading-snug group-hover:text-primary transition-colors">
                   {p.title}
                 </h3>
 
@@ -974,7 +974,7 @@ function Index() {
               ].map((a, i) => (
                 <div
                   key={i}
-                  className="mx-4 shrink-0 w-[320px] bg-white border border-[#e5e7eb] rounded-2xl p-7 flex flex-col gap-3 hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
+                  className="mx-4 shrink-0 w-[320px] bg-card border border-border rounded-2xl p-7 flex flex-col gap-3 hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
                 >
                   <div className="text-3xl">{a.emoji}</div>
                   <div className="text-xs font-bold text-primary uppercase tracking-widest">{a.label}</div>
