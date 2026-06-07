@@ -227,6 +227,45 @@ const certifications = [
   { y: "2024", t: "SQL Advanced", s: "HackerRank", pdf: "/certificates/sql_advanced certificate.pdf" },
 ];
 
+const events = [
+  {
+    year: "2024",
+    title: "L&T TechGium Hackathon",
+    organizer: "L&T Technology Services",
+    role: "Finalist",
+    result: "National Finalist",
+    resultColor: "text-amber-500 bg-amber-500/10 border-amber-500/20",
+    desc: "National-level engineering innovation challenge. Reached the final round competing against top engineering teams across India.",
+  },
+  {
+    year: "2025",
+    title: "Amazon ML Summer School",
+    organizer: "Amazon India",
+    role: "Selected Trainee",
+    result: "Top 3,000 of 100k+",
+    resultColor: "text-blue-500 bg-blue-500/10 border-blue-500/20",
+    desc: "Highly selective ML training program by Amazon. Chosen among 3,000+ applicants from across India for intensive ML curriculum.",
+  },
+  {
+    year: "2023–24",
+    title: "Kaggle Competitions",
+    organizer: "Kaggle",
+    role: "Competition Expert",
+    result: "Discussion Expert (2×)",
+    resultColor: "text-cyan-500 bg-cyan-500/10 border-cyan-500/20",
+    desc: "Ranked top 20% across 40+ competitions. Won a Kaggle competition and earned Discussion Expert badge twice for community contributions.",
+  },
+  {
+    year: "2024",
+    title: "Freelance AI Projects",
+    organizer: "Upwork",
+    role: "AI Engineer",
+    result: "2 Projects Delivered",
+    resultColor: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+    desc: "Delivered 2 GenAI-based freelance projects for international clients from Bangladesh and Singapore via Upwork platform.",
+  },
+];
+
 const publications = [
   {
     title: "Autoencoder-Based Dual Noise Suppression for Brain CT Imaging: SNR Optimization Toward Accurate Clinical Diagnostics",
@@ -383,6 +422,8 @@ function Index() {
       localStorage.setItem("theme", "light");
     }
   }, [isDark]);
+
+  const [certTab, setCertTab] = useState<"certs" | "events">("certs");
 
   const filteredProjects = activeCategory === "ALL" 
     ? projects 
@@ -757,24 +798,78 @@ function Index() {
 
         {/* Certifications */}
         <Section id="certifications" eyebrow="04. Verification" title="Certifications">
-          <div className="grid md:grid-cols-2 gap-6">
-            {certifications.map((c) => (
-              <a 
-                key={c.t} 
-                href={c.pdf} 
-                target="_blank" 
-                rel="noreferrer"
-                className="glass-panel p-8 rounded-[1.5rem] flex flex-col justify-center transition-all duration-300 hover:shadow-[0_4px_20px_rgb(0,0,0,0.05)] hover:border-primary/30 hover:-translate-y-1 border-[#e5e7eb]"
+          {/* Tab switcher */}
+          <div className="flex items-center gap-0 border-b border-border mb-10">
+            {(["certs", "events"] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setCertTab(tab)}
+                className={`relative px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 ${
+                  certTab === tab
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="text-sm font-semibold text-[#3b82f6]">{c.y}</div>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground/50" />
-                </div>
-                <div className="text-xl font-bold text-foreground mb-1.5">{c.t}</div>
-                <div className="text-sm text-muted-foreground font-medium">{c.s}</div>
-              </a>
+                {tab === "certs" ? "Certifications" : "Events / Hackathons"}
+                {certTab === tab && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary rounded-t-full" />
+                )}
+              </button>
             ))}
           </div>
+
+          {/* Certifications Tab */}
+          {certTab === "certs" && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {certifications.map((c) => (
+                <a
+                  key={c.t}
+                  href={c.pdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group glass-panel p-8 rounded-[1.5rem] flex flex-col justify-center transition-all duration-300 hover:shadow-[0_4px_20px_oklch(0_0_0_/_0.1)] hover:border-primary/30 hover:-translate-y-1"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-sm font-semibold text-primary">{c.y}</div>
+                    <ExternalLink className="h-4 w-4 text-muted-foreground/50 group-hover:text-primary transition-colors" />
+                  </div>
+                  <div className="text-xl font-bold text-foreground mb-1.5">{c.t}</div>
+                  <div className="text-sm text-muted-foreground font-medium">{c.s}</div>
+                </a>
+              ))}
+            </div>
+          )}
+
+          {/* Events / Hackathons Tab */}
+          {certTab === "events" && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {events.map((e) => (
+                <div
+                  key={e.title}
+                  className="group glass-panel p-7 rounded-[1.5rem] flex flex-col gap-4 transition-all duration-300 hover:border-primary/30 hover:-translate-y-1"
+                >
+                  {/* Top row: year + result badge */}
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-sm font-semibold text-primary">{e.year}</span>
+                    <span className={`text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${e.resultColor}`}>
+                      {e.result}
+                    </span>
+                  </div>
+
+                  {/* Title + role */}
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-0.5">{e.title}</h3>
+                    <p className="text-sm text-muted-foreground font-medium">{e.organizer} · {e.role}</p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-[13px] text-muted-foreground leading-relaxed border-t border-border pt-3">
+                    {e.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
         </Section>
 
         {/* Publications */}
