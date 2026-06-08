@@ -2,10 +2,11 @@
 @source "../src";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 .font-handwritten {
   font-family: 'Caveat', cursive;
 }
-@custom-variant dark (&:is(.dark *));
 
 /*
  * Design system definition.
