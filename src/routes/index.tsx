@@ -514,17 +514,18 @@ function Index() {
               Mumbai · Open to Remote & Full-time
             </div>
 
+            <p className="text-xl text-muted-foreground font-medium mb-4">
+              Hi, I'm Shubham 👋
+            </p>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-              First Solve The Problem <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-glow">
-                Then Write The Code
+              I turn complex data into AI systems people <br className="hidden md:block" />
+              <span className="font-handwritten text-6xl md:text-[5.5rem] leading-none text-primary font-normal tracking-wide mt-2 block">
+                actually use.
               </span>
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-xl font-light leading-relaxed mb-8">
-              Hi, I'm <strong className="text-foreground font-medium">Shubham Vishwakarma</strong>,
-              a Data Scientist & AI Engineer building multi-agent systems, generative AI, and
-              real-world ML pipelines.
+              I've spent my career making data actionable, from building generative AI systems to deploying real-world ML pipelines at scale.
             </p>
 
             <div className="flex flex-wrap gap-4">
