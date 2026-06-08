@@ -554,7 +554,7 @@ function Index() {
             </div>
 
             <p className="text-xl text-muted-foreground font-medium mb-4">
-              Hi, I'm Shubham 👋
+              Hi, I'm Shubham Vishwakarma 👋
             </p>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
               I turn complex data into AI systems people <br className="hidden md:block" />
