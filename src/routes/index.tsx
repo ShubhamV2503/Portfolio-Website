@@ -402,6 +402,45 @@ const experience = [
   },
 ];
 
+function Typewriter({ words }: { words: string[] }) {
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    const handleType = () => {
+      const i = loopNum % words.length;
+      const fullText = words[i];
+
+      setText(
+        isDeleting
+          ? fullText.substring(0, text.length - 1)
+          : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 50 : 150);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed, words]);
+
+  return (
+    <span className="font-handwritten text-4xl md:text-[3rem] text-primary/80 font-normal tracking-wide">
+      {text}
+      <span className="animate-pulse inline-block ml-1">|</span>
+    </span>
+  );
+}
+
 function Index() {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const categories = ["ALL", "AI PROJECTS", "DATA ENGINEERING", "APP DEVELOPMENT"];
@@ -524,9 +563,13 @@ function Index() {
               </span>
             </h1>
 
-            <p className="text-xl text-muted-foreground max-w-xl font-light leading-relaxed mb-8">
+            <p className="text-xl text-muted-foreground max-w-xl font-light leading-relaxed mb-6">
               I've spent my career making data actionable, from building generative AI systems to deploying real-world ML pipelines at scale.
             </p>
+
+            <div className="mb-10 h-12">
+              <Typewriter words={["Software Engineer.", "Data Scientist.", "GenAI Engineer."]} />
+            </div>
 
             <div className="flex flex-wrap gap-4">
               <a
