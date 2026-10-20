@@ -550,7 +550,7 @@ function Index() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Mumbai · Open to Remote & Full-time
+              Open to Remote &amp; Full-time
             </div>
 
             <p className="text-xl text-muted-foreground font-medium mb-4">
@@ -622,7 +622,6 @@ function Index() {
                   { icon: "⚡", label: "AI Engineer" },
                   { icon: "🏅", label: "Kaggle Expert" },
                   { icon: "📄", label: "IEEE Author" },
-                  { icon: "🌍", label: "Mumbai" },
                 ].map((b) => (
                   <span
                     key={b.label}
@@ -663,52 +662,22 @@ function Index() {
               </div>
             </div>
 
-            {/* Right — image mosaic */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/7] bg-primary/5 border border-border">
-                <img
-                  src="/images/Mypic.jpeg"
-                  alt="Shubham Vishwakarma"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-square bg-primary/5 border border-border flex items-center justify-center">
-                <div className="text-center p-4">
-                  <div className="text-4xl font-bold text-primary">40+</div>
-                  <div className="text-xs text-muted-foreground mt-1 font-medium">Kaggle<br/>Competitions</div>
-                </div>
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-square bg-gradient-to-br from-primary/20 to-primary/5 border border-border flex items-center justify-center">
-                <div className="text-center p-4">
-                  <div className="text-4xl font-bold text-primary">100k+</div>
-                  <div className="text-xs text-muted-foreground mt-1 font-medium">Amazon ML<br/>Applicants Pool</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        <Section id="how-i-work" eyebrow="02. Process" title="How I Work">
-          <p className="text-muted-foreground text-lg mb-14 max-w-2xl font-light">
-            My approach to every data problem — from ambiguous brief to production-ready system.
-          </p>
-          <div className="relative">
-            {/* Vertical connecting line */}
-            <div className="absolute left-[27px] top-10 bottom-10 w-[2px] bg-gradient-to-b from-primary via-primary/40 to-transparent hidden sm:block" />
-            <div className="space-y-6">
-              {pipeline.map((step, i) => (
-                <div key={step.n} className="group flex gap-6 sm:gap-8 items-start relative">
-                  {/* Step number circle */}
-                  <div className="shrink-0 w-14 h-14 rounded-full border-2 border-primary/40 bg-background group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300 flex items-center justify-center z-10">
-                    <span className="text-xs font-mono font-bold text-primary">{step.n}</span>
-                  </div>
-                  {/* Content */}
-                  <div className="flex-1 glass-panel rounded-2xl px-7 py-5 group-hover:border-primary/30 transition-all duration-300">
-                    <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-lg font-bold text-foreground">{step.t}</h3>
-                      <span className="text-[11px] font-mono text-primary/60 bg-primary/5 px-2 py-0.5 rounded shrink-0 border border-primary/10">{step.c}</span>
-                    </div>
-                    <p className="text-muted-foreground mt-1.5 font-light leading-relaxed">{step.d}</p>
+            {/* Right — stat cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: "40+", label: "Kaggle Competitions", icon: "🏅", gradient: "from-primary/20 to-primary/5" },
+                { value: "100k+", label: "Amazon ML Pool", icon: "🚀", gradient: "from-violet-500/20 to-violet-500/5" },
+                { value: "3+", label: "Years Experience", icon: "💼", gradient: "from-emerald-500/20 to-emerald-500/5" },
+                { value: "4", label: "IEEE Publications", icon: "📄", gradient: "from-cyan-500/20 to-cyan-500/5" },
+              ].map((card) => (
+                <div
+                  key={card.label}
+                  className={`rounded-2xl bg-gradient-to-br ${card.gradient} border border-border p-6 flex flex-col justify-between gap-3 hover:scale-[1.03] transition-transform duration-300`}
+                >
+                  <span className="text-2xl">{card.icon}</span>
+                  <div>
+                    <div className="text-4xl font-bold text-primary leading-none">{card.value}</div>
+                    <div className="text-xs text-muted-foreground mt-2 font-medium leading-snug">{card.label}</div>
                   </div>
                 </div>
               ))}
